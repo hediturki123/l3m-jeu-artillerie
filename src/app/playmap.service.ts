@@ -55,7 +55,7 @@ export class PlaymapService {
           this.trajectoriesSubj.value.forEach(
             (t, i) => {
               const D = data.L[i];
-              t.push(...D.filter( (_, i) => i % 50 === 0) );
+              t.push(...D.filter( (_, j) => j % 50 === 0) );
               t.splice(0, Math.max(0, t.length - 1000));
               if (D.length > 0) {
                 t.push( D[D.length - 1] );

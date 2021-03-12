@@ -41,4 +41,4 @@ export type COMMAND = {cmd: 'START', game: Game} |
 export type EVENT = {type: 'TRAJECTORIES', L: COORDINATE[][]} |
                     {type: 'STARTING', colors: string[]}      |
                     {type: 'ENDING'}                          |
-                    {type: 'DESTROY', ships: ShipID[]}
+                    {type: 'DESTROY', ships: ShipID[]};
