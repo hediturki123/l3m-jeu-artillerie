@@ -15,7 +15,6 @@ export interface Planet extends PhysicalObject {
   m: number; // Mass
 }
 
-type ShipID = string;
 export interface Ship extends PhysicalObject {
   angle: number; // [0; 360[
   force: number;
@@ -47,4 +46,4 @@ export type COMMAND = {cmd: 'START', game: Game} |
 export type EVENT = {type: 'TRAJECTORIES', L: COORDINATE[][]} |
                     {type: 'STARTING', colors: string[]}      |
                     {type: 'ENDING'}                          |
-                    {type: 'DESTROY', ships: ShipID[]};
+                    {type: 'DESTROY', shipUIDs: number[]};
