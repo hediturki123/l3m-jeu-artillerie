@@ -12,7 +12,7 @@ Clonez le projet ainsi forké
 
 # Etapes à faire :
 1. Représenter une carte de jeu : planètes et bases
-  a. Utilisation de balises SVG pour dessiner la carte
+	a. Utilisation de balises SVG pour dessiner la carte
 Balise svg : https://developer.mozilla.org/fr/docs/Web/SVG/Element/svg
 Balise cercle : https://developer.mozilla.org/fr/docs/Web/SVG/Element/circle
 Balise groupe : https://developer.mozilla.org/fr/docs/Web/SVG/Element/g
