@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { BehaviorSubject, Subject, timer } from 'rxjs';
 import { switchMap, takeUntil } from 'rxjs/operators';
-import { COMMAND, COORDINATE, EVENT, Game, Planet, Player, Ship } from './definitions';
+import { COMMAND, COORDINATE, EVENT, Game, getUID, Planet, Player, Ship } from './definitions';
 
 @Injectable({
   providedIn: 'root'
@@ -81,16 +81,16 @@ export class PlaymapService {
       label: 'Jeu pipo',
       players: [
         {name: 'Player 1', color: 'red', ships: [
-          {p: [0, 100], radius: 5, force: 15, angle: 45},
-          {p: [100, 0], radius: 5, force: 25, angle: 0}
+          {uid: getUID(), p: [0, 100], radius: 5, force: 29, angle: 45},
+          {uid: getUID(), p: [100, 0], radius: 5, force: 25, angle: 0}
         ]},
         {name: 'Player 2', color: 'blue', ships: [
-          {p: [245, 145], radius: 5, force: 15, angle: 90},
+          {uid: getUID(), p: [245, 145], radius: 5, force: 15, angle: 90},
         ]}
       ],
       planets: [
-        {p: [0, 0], radius: 100, m: 40000},
-        {p: [200, 100], radius: 50, m: 10000},
+        {uid: getUID(), p: [0, 0], radius: 100, m: 40000},
+        {uid: getUID(), p: [200, 100], radius: 50, m: 10000},
       ]
     });
   }
@@ -103,8 +103,9 @@ export class PlaymapService {
     });
   }
 
-  updateShip(P: Player, S: Ship, u: Partial<Ship>): void {
+  updateShip(S: Ship, u: Partial<Ship>): void {
     const G  = this.gameSubj.value;
+    const P: Player = G.players.find( p => p.ships.find( s => s === S) ) as Player;
     this.gameSubj.next({
       ...G,
       players: G.players.map( p => p === P ? {
