@@ -1,8 +1,14 @@
 export type COORDINATE = [number, number];
 
+let uid = 0;
+export function getUID(): number {
+  return uid++;
+}
+
 export interface PhysicalObject {
   p: COORDINATE; // Coordinates
   radius: number; // Radius
+  uid: number;
 }
 
 export interface Planet extends PhysicalObject {
