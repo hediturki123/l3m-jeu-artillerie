@@ -66,6 +66,19 @@ export class PlaymapService {
         case 'ENDING':
           this.stopS.next();
           break;
+        case 'DESTROY':
+          const Luid = data.shipUIDs;
+          const G = this.gameSubj.value;
+          this.gameSubj.next({
+            ...G,
+            players: G.players.map(
+              P => ({
+                ...P,
+                ships: P.ships.filter( s => Luid.indexOf(s.uid) === -1 )
+              })
+            )
+          });
+          break;
       }
     };
     this.startS.next();

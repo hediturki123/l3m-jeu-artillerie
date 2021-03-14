@@ -106,6 +106,7 @@ function STEP(planets: Planet[], ships: Ship[], missiles: Undefinable<Missile>[]
         if ( dx * dx + dy * dy <= ship.radius * ship.radius ) {
           toBeRemoved = true;
           ships.splice(iS, 1);
+          sendMessage({type: 'DESTROY', shipUIDs: [ship.uid]})
           break;
         }
       }
