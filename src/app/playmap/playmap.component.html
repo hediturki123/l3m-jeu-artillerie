@@ -6,9 +6,8 @@
 <svg *ngIf="gameObs | async as G" #svgE>
   <g #root transform="translate(400 300) scale(0.5)" [appSvgDraggable]="svgE" [appSvgZoomable]="svgE">
     <circle *ngFor="let P of G.planets; trackBy: trackByUID"
-            class="planet"
-            transform=""
-            [appSvgDraggable] = "true" (svgDragEnd) = "endDragPlanet(P, $event)"
+            class="planet" #circle
+            [appSvgDraggable] = "true" (svgDragEnd) = "endDragPlanet(P, circle, $event)"
             [attr.cx]="P.p[0]" [attr.cy]="P.p[1]" [attr.r]="P.radius" />
     <g *ngFor="let player of G.players; trackBy: trackByIndex">
       <circle *ngFor="let S of player.ships; trackBy: trackByUID"

@@ -30,10 +30,11 @@ export class PlaymapComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  endDragPlanet(P: Planet, M: DOMMatrix): void {
+  endDragPlanet(P: Planet, C: Element, M: DOMMatrix): void {
     // console.log('endDragPlanet', P, M);
     const pt0 = new DOMPoint(0, 0);
     const pt = pt0.matrixTransform(M);
+    C.setAttribute('transform', '');
     this.GS.updatePlanet(P, {p: [P.p[0] + pt.x, P.p[1] + pt.y].map(
       x => Math.round(1000 * x) / 1000
     ) as COORDINATE });
