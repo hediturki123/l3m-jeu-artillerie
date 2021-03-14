@@ -1,8 +1,14 @@
 export type COORDINATE = [number, number];
 
+let uid = 0;
+export function getUID(): number {
+  return uid++;
+}
+
 export interface PhysicalObject {
   p: COORDINATE; // Coordinates
   radius: number; // Radius
+  uid: number;
 }
 
 export interface Planet extends PhysicalObject {
@@ -41,4 +47,4 @@ export type COMMAND = {cmd: 'START', game: Game} |
 export type EVENT = {type: 'TRAJECTORIES', L: COORDINATE[][]} |
                     {type: 'STARTING', colors: string[]}      |
                     {type: 'ENDING'}                          |
-                    {type: 'DESTROY', ships: ShipID[]}
+                    {type: 'DESTROY', ships: ShipID[]};
