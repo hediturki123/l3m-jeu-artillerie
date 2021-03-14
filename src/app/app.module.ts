@@ -6,6 +6,7 @@ import { AppComponent } from './app.component';
 import { PlaymapComponent } from './playmap/playmap.component';
 import { SvgDraggableDirective } from './svg-draggable.directive';
 import { SvgZoomableDirective } from './svg-zoomable.directive';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -16,7 +17,8 @@ import { SvgZoomableDirective } from './svg-zoomable.directive';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
