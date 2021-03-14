@@ -81,7 +81,7 @@ export class PlaymapService {
       label: 'Jeu pipo',
       players: [
         {name: 'Player 1', color: 'red', ships: [
-          {p: [0, 100], radius: 5, force: 15, angle: 45},
+          {p: [0, 100], radius: 5, force: 29, angle: 45},
           {p: [100, 0], radius: 5, force: 25, angle: 0}
         ]},
         {name: 'Player 2', color: 'blue', ships: [

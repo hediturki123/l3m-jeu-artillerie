@@ -9,17 +9,25 @@
             [appSvgDraggable] = "true" (svgDragEnd) = "endDragPlanet(P, $event)"
             [attr.cx]="P.p[0]" [attr.cy]="P.p[1]" [attr.r]="P.radius" />
     <g *ngFor="let player of G.players">
-      <circle *ngFor="let S of player.ships" class="ship"
+      <circle *ngFor="let S of player.ships"
               [attr.cx]="S.p[0]" [attr.cy]="S.p[1]" [attr.r]="S.radius"
-              [attr.fill] = "player.color" />
+              [attr.fill] = "player.color"
+              class="ship"
+              [class.selected] = "S === selectedShipSubj.value"
+              (click) = "selectedShipSubj.next(S)"
+              />
     </g>
     <polyline *ngFor="let pts of trajectoriesObs | async; index as i"
-        fill="none" [attr.stroke]="colors[i]"
-        [attr.points]="pts"
-        />
+              fill="none" [attr.stroke]="colors[i]"
+              [attr.points]="pts"
+              />
   </g>
 </svg>
 
+<form *ngIf="selectedShipSubj | async as S">
+  <input type="number" [ngModel]="S.angle" />
+  <input type="number" [ngModel]="S.force" />
+</form>
 <pre>
-  {{gameObs | async | json}}
+  {{selectedShipSubj | async | json}}
 </pre>

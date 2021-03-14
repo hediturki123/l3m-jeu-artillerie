@@ -17,5 +17,14 @@
       stroke-width: 1px;
     }
 
+    circle.ship.selected {
+      animation: .5s ease-in-out infinite alternate selectedShip;
+    }
+
   }
+}
+
+@keyframes selectedShip {
+    0% {stroke-width: 1px; stroke: black;}
+  100% {stroke-width: 3px; stroke: yellowgreen;}
 }

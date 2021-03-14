@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Observable } from 'rxjs';
+import { BehaviorSubject, Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { COORDINATE, Game, Planet, Player, Ship } from '../definitions';
 import { PlaymapService } from '../playmap.service';
@@ -12,6 +12,7 @@ import { PlaymapService } from '../playmap.service';
 export class PlaymapComponent implements OnInit {
   readonly trajectoriesObs: Observable<string[]>;
   readonly gameObs: Observable<Game>;
+  readonly selectedShipSubj = new BehaviorSubject<Ship | undefined>(undefined);
 
   constructor(private GS: PlaymapService) {
     this.gameObs         = this.GS.gameObs;
