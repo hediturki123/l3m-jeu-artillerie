@@ -24,9 +24,32 @@ export class PlaymapComponent implements OnInit {
   }
 
 
-  dragComponent(planet : Planet, domMatrix : DOMMatrix) {
+  get color() : string[]{
+    return this.GS.colors;
+  }
+
+  dragPlanet(planet : Planet, domMatrix : DOMMatrix) {
     this.GS.updatePlanet(planet, {p : [planet.p[0] + domMatrix.e, planet.p[1] + domMatrix.f]});
   }
 
+  dragShip(ship : Ship, domMatrix : DOMMatrix) {
+    this.GS.updateShip(ship, {p : [ship.p[0] + domMatrix.e, ship.p[1] + domMatrix.f]});
+  }
+
+  start() {
+    this.GS.start();
+  }
+
+  stop() {
+    this.GS.stop();
+  }
+
+  load() {
+    this.GS.load();
+  }
+
+  /*updateAngleForce(angle : number, force : number) {
+    this.GS.updateShip()
+  }*/
 
 }

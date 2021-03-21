@@ -7,6 +7,7 @@ import { fromEvent, Subscription } from 'rxjs';
 })
 export class SvgZoomableDirective implements OnInit, OnDestroy, AfterViewInit {
   @Input () appSvgZoomable: boolean | Element = true;
+
   private sub: Subscription | undefined = undefined;
   private svg: Element | null = null;
 
