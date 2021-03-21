@@ -24,4 +24,9 @@ export class PlaymapComponent implements OnInit {
   }
 
 
+  dragComponent(planet : Planet, domMatrix : DOMMatrix) {
+    this.GS.updatePlanet(planet, {p : [planet.p[0] + domMatrix.e, planet.p[1] + domMatrix.f]});
+  }
+
+
 }

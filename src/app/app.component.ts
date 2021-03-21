@@ -1,3 +1,5 @@
+import { Observable } from 'rxjs';
+import { SvgDraggableDirective } from './svg-draggable.directive';
 import { Component } from '@angular/core';
 
 @Component({
@@ -7,4 +9,13 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'mini-jeu';
+
+
+  constructor() {
+
+  }
+
+
+
+
 }

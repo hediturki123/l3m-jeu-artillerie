@@ -1,3 +1,26 @@
+<svg width = "150" height = "100" *ngIf = "gameObs | async as Game">
+  <line stroke = "black" stroke-width = "20"/>
+  <g fill = "yellow" stroke = "black" stroke-width = "2">
+    <circle *ngFor = "let planet of Game.planets"
+            [attr.cx] = "planet.p[0]"
+            [attr.cy] = "planet.p[1]"
+            [attr.r]  = "planet.radius"
+            [appSvgDraggable]  = "true"
+            (svgDragEnd) = "dragComponent(planet, $event)"
+    />
+  </g>
+  <g *ngFor = "let player of Game.players">
+    <circle *ngFor = "let ship of player.ships"
+            [attr.cx] = "ship.p[0]"
+            [attr.cy] = "ship.p[1]"
+            [attr.r]  = "ship.radius"
+            [appSvgDraggable]  = "true"
+            fill = "player.color"
+    />
+  </g>
+</svg>
+
 <pre>
   {{gameObs | async | json}}
 </pre>
+
